@@ -1,0 +1,77 @@
+<html>
+<head>
+	<title>EvenOdd App By Om Patil</title>
+	<style>
+	*{font-size:50px;}
+	.btn{background-color:4b0076;color:white;border-radius:20px;margin-left:50px;}
+	 .btn:hover {
+            background-color: #0056b3;
+        }
+	 .btn:active {
+            background-color: #004080;
+            transform: scale(0.95);
+        }
+	body{background-color:B47EE5;}
+	cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+	</style>
+</head>
+<body>
+<center>
+	<h1>EvenOdd App</h1>
+	<form onsubmit="check()">
+	<input type="number"placeholder="enter integer"id="num"/>
+	</br></br>
+	<input type="submit"value="M1"class="btn"/>
+	<input type="submit"value="M2"class="btn"/>	
+	<input type="submit"value="M3"class="btn"/>
+	</form>
+	<h2 id="msg">
+	<script>
+		function check()
+		{
+		event.preventDefault();
+		let ele=document.activeElement.value;
+		let num=document.getElementById("num");
+		let msg=document.getElementById("msg");
+	
+		if(num.value=="")
+		{
+		alert("u did not enter integer");
+		msg.innerHTML="";
+		num.focus()
+		return;
+		}
+
+		let n =parseInt(num.value);
+
+		if(ele == "M1")
+		{
+			let ans=n%2==0 ?"even" :"odd";
+			msg.innerHTML="M1 ➽ "+ans;
+		}
+		else if(ele=="M2")
+		{
+			let ans="";
+			if(n%2==0)
+				ans="even";
+			else
+				ans="odd";
+			msg.innerHTML = "M2 ➽ "+ans;
+		}
+		else if(ele == "M3")
+		{
+			let ans="";
+			switch(n%2)
+			{
+				case 0:	   	ans="even"; break;
+				case 1: 	ans="odd"; break;
+				case -1:	ans="odd"; break;
+			}
+			msg.innerHTML = "M3 ➽ "+ans;
+		}
+		}
+	</script>
+</center>
+</body>
+</html>
